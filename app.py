@@ -7,8 +7,9 @@ import plotly.graph_objs as go
 from datetime import datetime as dt
 from util import DataManagement as dm
 
+app = dash.Dash(__name__)
+server = app.server
 
-app = dash.Dash()
 app.config['suppress_callback_exceptions']=True
 app.css.append_css({'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'})
 dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
