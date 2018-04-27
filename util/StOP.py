@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import cvxportfolio as cp
 
+
+
 class SPO_Problem(object):
 	"""class for defining Single Period Optimization problem"""
 	def __init__(self,tcost,hcost,risk,gamma_trade=1.0,gamma_hold=1.0,gamma_risk=5.0):

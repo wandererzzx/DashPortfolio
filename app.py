@@ -8,9 +8,16 @@ from datetime import datetime as dt
 from dateutil.relativedelta import relativedelta
 from dateutil import parser
 from util import DataManagement as dm
+
+import sys
+import os
+sys.path.insert(0,os.path.abspath('.'))
+
 from util import PreProcess
 from util import StOP
 from util import MarketSimulation
+
+
 
 import cvxportfolio as cp
 
@@ -251,7 +258,6 @@ def simulation(n_clicks,portfolio,r_hat,sigma_hat,half_spread,
 
 			print('loading data...')
 			_,pct_df = PreProcess.pri_pct_load(portfolio,start_date=start_date,end_date=end_date)
-			print(pct_df)
 
 			print('data loaded.')
 			if r_hat == 1:
@@ -278,7 +284,6 @@ def simulation(n_clicks,portfolio,r_hat,sigma_hat,half_spread,
 			result = MarketSimulation.backTest(spo,init_portfolio,pct_df,
 		                                   start_time=start_time,end_time=end_time)
 			print('Simulation Finished.')
-			print(result.v)
 
 			value_scatters = [go.Scatter(
 							x = result.v.index, y = result.v.values,
@@ -328,8 +333,7 @@ def simulation(n_clicks,portfolio,r_hat,sigma_hat,half_spread,
 
 
 		except Exception as e:
-			print(e)
-			return e
+			raise e
 
 
 @app.callback(Output('data-load','children'),

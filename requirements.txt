@@ -7,7 +7,6 @@ colorlover==0.2.1
 cryptography==2.2.2
 CVXcanon==0.1.1
 cvxopt==1.2.0
-cvxportfolio==0.0.2
 cvxpy==0.4.11
 cycler==0.10.0
 dash==0.21.0
@@ -16,7 +15,7 @@ dash-html-components==0.10.0
 dash-renderer==0.12.1
 decorator==4.3.0
 dill==0.2.7.1
-ecos==2.0.7rc1
+ecos==2.0.4
 fastcache==1.0.2
 Flask==0.12.2
 Flask-Compress==1.4.0
