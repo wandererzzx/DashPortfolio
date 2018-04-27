@@ -4,6 +4,10 @@ import colorlover as cl
 import quandl
 import plotly.graph_objs as go
 import plotly.figure_factory as ff
+import dash_html_components as html
+import collections
+import numpy as np 
+
 
 global key
 key = 'MD5vrwzxyZbgJUcxdogL'
@@ -93,3 +97,36 @@ def getPctDis(stock,price_df):
 	# group_labels = ['price percentage change distribution']
 	# fig = ff.create_distplot(hist_data,group_labels)
 	return hist_data
+
+
+
+def reports(results):
+    data = collections.OrderedDict({
+        'Number of periods':
+            results.u.shape[0],
+        'Initial timestamp':
+            results.h.index[0],
+        'Final timestamp':
+            results.h.index[-1],
+        'Portfolio return (%)':
+            results.returns.mean() * 100 * results.PPY,
+        'Excess return (%)':
+            results.excess_returns.mean() * 100 * results.PPY,
+        'Excess risk (%)':
+            results.excess_returns.std() * 100 * np.sqrt(results.PPY),
+        'Sharpe ratio':
+            results.sharpe_ratio,
+        'Max. drawdown':
+            results.max_drawdown,
+        'Turnover (%)':
+            results.turnover.mean() * 100 * results.PPY
+        # 'Average policy time (sec)':
+        #     results.policy_time.mean(),
+        # 'Average simulator time (sec)':
+        #     results.simulation_time.mean(),
+    })
+
+    reports = html.Table(
+       [html.Tr([html.Th(key),html.Td(value)]) for key,value in data.items()]
+    )
+    return (reports)
