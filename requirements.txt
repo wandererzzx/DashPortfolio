@@ -1,3 +1,4 @@
+numpy==1.14.2
 asn1crypto==0.24.0
 certifi==2018.4.16
 cffi==1.11.5
@@ -36,7 +37,6 @@ more-itertools==4.1.0
 multiprocess==0.70.5
 nbformat==4.4.0
 ndg-httpsclient==0.5.0
-numpy==1.14.2
 pandas==0.22.0
 plotly==2.5.1
 pyasn1==0.4.2
