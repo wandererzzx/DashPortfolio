@@ -7,7 +7,7 @@ click==6.7
 colorlover==0.2.1
 cryptography==2.2.2
 CVXcanon==0.1.1
-cvxopt==1.2.0
+cvxopt==1.2.7
 cvxpy==0.4.11
 cycler==0.10.0
 dash==0.21.0
